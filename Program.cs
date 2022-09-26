@@ -18,22 +18,12 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddLogging(cfg =>
         {
             cfg.AddConfiguration(
-                builderContext.Configuration); // This doesn't work. Why? Try using Host.CreateDefaultBuilder() instead: https://www.thecodebuzz.com/loading-configuration-ini-xml-json-net-core-console-winform/
+                builderContext.Configuration); 
             cfg.AddConsole();
             cfg.AddDebug();
         });
         services.AddSingleton(builderContext.Configuration);
-
-
     })
-    //.ConfigureAppConfiguration((context, builder) =>
-    //{
-    // // builder.SetBasePath(Directory.GetCurrentDirectory());
-    //    builder.AddJsonFile("appsettings.json");
-    //  //  builder.AddEnvironmentVariables();
-    //   // builder.AddCommandLine(args);
-
-    //})
     .Build();
 
 CreateDbIfNotExists(host);

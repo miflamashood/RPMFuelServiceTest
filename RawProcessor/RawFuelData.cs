@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPMFuelService
 {
+
   public class RawFuelData
     {
         public Request request { get; set; }
